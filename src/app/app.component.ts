@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
     // });
   }
   ngOnInit(): void {
-    this.http.get('https://nest-push-ghxv.vercel.app/').subscribe((data) => {
+    this.http.post('https://nest-push-ghxv.vercel.app/hello', {'cc':'cc'}).subscribe((data) => {
       console.log({data});
     });
     this.swUpdate.versionUpdates.subscribe((version) => {
