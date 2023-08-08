@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { SwPush, SwUpdate } from '@angular/service-worker';
 import { VAPID } from './config/vapid';
 
@@ -20,7 +20,10 @@ export class AppComponent implements OnInit {
     // });
   }
   ngOnInit(): void {
-    this.http.post('https://nest-push-ghxv.vercel.app/hello', {'cc':'cc'}).subscribe((data) => {
+    this.http.post('https://nest-push-ghxv.vercel.app/hello',
+     {'cc':'cc'},
+     {headers: new HttpHeaders().set('Content-Type', 'application/json')}
+    ).subscribe((data) => {
       console.log({data});
     });
     this.swUpdate.versionUpdates.subscribe((version) => {
