@@ -51,7 +51,7 @@ export class AppComponent implements OnInit {
       .then((sub:PushSubscription) => {
         console.log({sub});
         this.http
-          .post('http://localhost:3000/notifications', sub)
+          .post('https://nest-push-5uuv.vercel.app/notifications', sub)
           .subscribe((data) => console.log({ data: data }));
       })
       .catch((err) =>
