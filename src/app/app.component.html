@@ -1,12 +1,9 @@
 <div class="alert alert-primary">
   <a [routerLink]="['']"> Home </a>
   <a [routerLink]="['test']"> test </a>
-
-  <button
-    (click)="download()"
-    *ngIf="isDownladable"
-    class="btn btn-success">Add to home screen</button>
 </div>
-<h1 class="alert alert-danger">Version V3 is runnning ...</h1>
-
+<h1 class="alert alert-danger">Version V5 is runnning ...</h1>
+<button class="btn btn-danger" (click)="subscribeToNotifications()">
+  Subscribe To Notifications
+</button>
 <router-outlet></router-outlet>
