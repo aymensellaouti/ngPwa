@@ -20,11 +20,9 @@ export class AppComponent implements OnInit {
     // });
   }
   ngOnInit(): void {
-    this.http.get('http://localhost:3000').subscribe(
-      (todo) => {
-        console.log(todo);
-      }
-    );
+    this.http.get('https://nest-push-ghxv.vercel.app/').subscribe((data) => {
+      console.log({data});
+    });
     this.swUpdate.versionUpdates.subscribe((version) => {
       if (version.type === 'VERSION_READY') {
         if (
@@ -51,7 +49,7 @@ export class AppComponent implements OnInit {
       .then((sub:PushSubscription) => {
         console.log({sub});
         this.http
-          .post('https://nest-push-5uuv.vercel.app/notifications', sub)
+          .post('https://nest-push-ghxv.vercel.app/notifications', sub)
           .subscribe((data) => console.log({ data: data }));
       })
       .catch((err) =>
